@@ -11,7 +11,7 @@ export const fakeOrders = [
 	},
 	{
 		id: 124,
-		date: 1552581120000,
+		date: 1552481120000,
 		shop: 'Lamoda.ru',
 		items: [
 			'Жакет - BOREAL5',

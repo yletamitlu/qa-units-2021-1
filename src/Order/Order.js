@@ -1,5 +1,6 @@
 import React from 'react';
 import './Order.css';
+import {getDate} from '../utils/getDate';
 
 export default class Order extends React.PureComponent {
 	getItems() {
@@ -22,12 +23,11 @@ export default class Order extends React.PureComponent {
 	render() {
 		const {order: {shop, date}} = this.props;
 
-		//напишем getDate как в letter.meta
 		return (
 			<div className='Order'>
 				<div className='Order-header'>
 					<span className='Order-shop'>{shop}</span>
-					<span>{date}</span>
+					<span>{getDate(date)}</span>
 				</div>
 
 				<div className='Order-items'>
