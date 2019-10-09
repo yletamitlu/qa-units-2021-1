@@ -9,10 +9,14 @@ export const sortTypes = {
 
 /**
  * Функция сортировки заказов
- * @param orders - массив заказов
- * @param sortType - выбранный тип сортировки
+ * @param {Array} orders - массив заказов
+ * @param {string} sortType - выбранный тип сортировки
  */
 export const sortOrders = (orders, sortType) => {
+	if (!orders || !orders.length || !sortType) {
+		return;
+	}
+
 	switch(sortType) {
 		case sortTypes.DATE:
 			orders.sort(sortByDate);
@@ -29,16 +33,24 @@ export const sortOrders = (orders, sortType) => {
 /**
  * Колбэк для сортировки массива закзаов
  * Сравнивает 2 заказа по именам товаров в заказе
- * @param order1
- * @param order2
+ * @param {Object} order1
+ * @param {Object} order2
  */
 export const sortByItemNames = (order1, order2) => {
-	if (typeof order1 !== 'object' && typeof order2 !== 'object') {
+	if (typeof order1 !== 'object' || typeof order2 !== 'object') {
+		return 0;
+	}
+
+	if (!order1 || !order2) {
 		return 0;
 	}
 
 	const {items: items1} = order1;
 	const {items: items2} = order2;
+
+	if (!items1 || !items2) {
+		return 0;
+	}
 
 	let result = 0;
 
@@ -65,12 +77,20 @@ export const sortByItemNames = (order1, order2) => {
  * @param order2
  */
 export const sortByItemCount = (order1, order2) => {
-	if (typeof order1 !== 'object' && typeof order2 !== 'object') {
+	if (typeof order1 !== 'object' || typeof order2 !== 'object') {
+		return 0;
+	}
+
+	if (!order1 || !order2) {
 		return 0;
 	}
 
 	const {items: items1} = order1;
 	const {items: items2} = order2;
+
+	if (!items1 || !items2) {
+		return 0;
+	}
 
 	switch (true) {
 		case items1.length < items2.length:
@@ -90,10 +110,25 @@ export const sortByItemCount = (order1, order2) => {
  * @param order2
  */
 export const sortByDate = (order1, order2) => {
+	if (typeof order1 !== 'object' || typeof order2 !== 'object') {
+		return 0;
+	}
+
+	if (!order1 || !order2) {
+		return 0;
+	}
+
+	const {date: date1} = order1;
+	const {date: date2} = order2;
+
+	if (!date1 || !date2) {
+		return 0;
+	}
+
 	switch (true) {
-		case order1.date < order2.date:
+		case date1 < date2:
 			return 1;
-		case order1.date > order2.date:
+		case date1 > date2:
 			return -1;
 		default:
 			return 0;

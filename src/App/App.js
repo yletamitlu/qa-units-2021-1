@@ -4,40 +4,48 @@ import {fakeOrders} from '../mock/fakeOrders';
 import Order from '../Order/Order';
 import {sortOrders, sortTypes} from '../utils/sortOrders';
 
-function Orders(orders) {
-  if (!orders || !orders.length) {
-    return;
+export default class App extends React.PureComponent {
+  state = {
+    sortType: sortTypes.DATE,
+  };
+
+  getOrders(orders) {
+    if (!orders || !orders.length) {
+      return null;
+    }
+
+    return orders.map((order, index) => (
+      <Order
+        key={index}
+        order={order}
+      />
+    ))
   }
 
-  return orders.map((order, index) => (
-    <Order
-      key={index}
-      order={order}
-    />
-  ))
-}
+  render() {
+    const {sortType} = this.state;
 
-function App() {
-  const [sortType, setSortType] = useState(sortTypes.COUNT);
-  sortOrders(fakeOrders, sortType);
+    sortOrders(fakeOrders, sortType);
 
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <span className='App-header-title'>Сортировать заказы</span>
+    return (
+      <div className='App'>
+        <header className='App-header'>
+          <span className='App-header-title'>Сортировать заказы</span>
 
-        <select onChange={(event) => setSortType(event.target.value)}>
-          <option value={sortTypes.COUNT}>по количеству</option>
-          <option value={sortTypes.DATE}>по дате</option>
-          <option value={sortTypes.ITEM_NAMES}>по названиям товаров</option>
-        </select>
-      </header>
+          <select
+            value={sortType}
+            onChange={(event) => this.setState({sortType: event.target.value})}
+          >
+            <option value={sortTypes.COUNT}>по количеству товаров</option>
+            <option value={sortTypes.DATE}>по дате</option>
+            <option value={sortTypes.ITEM_NAMES}>по названиям товаров</option>
+          </select>
+        </header>
 
-      <div className='App-container'>
-        {Orders(fakeOrders)}
+        <div className='App-container'>
+          {this.getOrders(fakeOrders)}
+        </div>
       </div>
-    </div>
-  );
+      )
+  }
 }
-
-export default App;
