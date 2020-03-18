@@ -37,5 +37,12 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/App/*.{js,jsx,ts,tsx}",
+      "src/Order/*.{js,jsx,ts,tsx}",
+      "src/utils/*.{js,jsx,ts,tsx}"
+    ]
   }
 }

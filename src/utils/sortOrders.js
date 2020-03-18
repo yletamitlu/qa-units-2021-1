@@ -10,23 +10,34 @@ export const sortTypes = {
 /**
  * Функция сортировки заказов
  * @param {Array} orders - массив заказов
- * @param {string} sortType - выбранный тип сортировки
+ * @param {string} sortFunction - функция сортировки
  */
-export const sortOrders = (orders, sortType) => {
-	if (!orders || !orders.length || !sortType) {
+export const sortOrders = (orders, sortFunction) => {
+	if (!orders || !orders.length) {
 		return;
 	}
 
+	if (!sortFunction || typeof sortFunction !== "function") {
+		return;
+	}
+
+	orders.sort(sortFunction);
+};
+
+/**
+ * Функция возвращает нужный колбэк
+ * по переданному типу сортировки
+ * @param sortType
+ * @returns {sortByItemNames|sortByItemCount|sortByDate}
+ */
+export const getSortFunction = (sortType) => {
 	switch(sortType) {
 		case sortTypes.DATE:
-			orders.sort(sortByDate);
-			break;
+			return sortByDate;
 		case sortTypes.COUNT:
-			orders.sort(sortByItemCount);
-			break;
+			return sortByItemCount;
 		case sortTypes.ITEM_NAMES:
-			orders.sort(sortByItemNames);
-			break;
+			return sortByItemNames;
 	}
 };
 

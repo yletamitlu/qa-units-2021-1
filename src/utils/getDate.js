@@ -24,6 +24,10 @@ const months = {
 };
 
 export function getDate(timestamp) {
+	if (!timestamp || typeof timestamp !== "number") {
+		return;
+	}
+
 	const date = new Date(timestamp);
 
 	const day = date.getDate();
