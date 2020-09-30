@@ -33,6 +33,10 @@ https://jestjs.io/docs/ru/getting-started
 
 https://jestjs.io/docs/ru/expect
 
+_jest моки:_
+
+https://jestjs.io/docs/ru/bypassing-module-mocks
+
 _enzyme:_
 
 https://airbnb.io/enzyme/
@@ -41,9 +45,11 @@ https://medium.com/@acesmndr/testing-react-functional-components-with-hooks-usin
 
 **Условия сдачи практики:**
 
-- написать юнит-тесты на каждую функцию в /utils и на компонент Order
-- добиться покрытия не менее 80% по всем модулям
-- соблюсти принципы автоматизации и не применить анти-паттерны
-- скинуть пулл-реквест до конца семинара и пройти ревью
+1. Написать юнит-тесты на каждую функцию в sortOrders
+    - используйте [test.each](https://jestjs.io/docs/en/api#testeachtablename-fn-timeout) для одинаковых выходных значений
+2. Замокать функцию getDate и написать юнит-тесты на компонент Order
+3. Добиться покрытия не менее 90% по всем модулям
+4. Соблюсти принципы автоматизации и не применить анти-паттерны
+5. Скинуть пулл-реквест до конца семинара и пройти ревью
 
 
