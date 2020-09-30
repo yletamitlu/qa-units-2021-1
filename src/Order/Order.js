@@ -21,13 +21,21 @@ export default class Order extends React.PureComponent {
 	}
 
 	render() {
+		if (!this.props.order) {
+			return null;
+		}
+
 		const {order: {shop, date}} = this.props;
+
+		if (!shop || !date) {
+			return null;
+		}
 
 		return (
 			<div className='Order'>
 				<div className='Order-header'>
 					<span className='Order-shop'>{shop}</span>
-					<span>{getDate(date)}</span>
+					<span id='date'>{getDate(date)}</span>
 				</div>
 
 				<div className='Order-items'>

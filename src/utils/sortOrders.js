@@ -2,7 +2,6 @@
 // @see https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Description
 
 export const sortTypes = {
-	ITEM_NAMES: 'names',
 	DATE: 'date',
 	COUNT: 'count',
 };
@@ -10,7 +9,7 @@ export const sortTypes = {
 /**
  * Функция сортировки заказов
  * @param {Array} orders - массив заказов
- * @param {string} sortFunction - функция сортировки
+ * @param {Function} sortFunction - функция сортировки
  */
 export const sortOrders = (orders, sortFunction) => {
 	if (!orders || !orders.length) {
@@ -28,7 +27,7 @@ export const sortOrders = (orders, sortFunction) => {
  * Функция возвращает нужный колбэк
  * по переданному типу сортировки
  * @param sortType
- * @returns {sortByItemNames|sortByItemCount|sortByDate}
+ * @returns {sortByItemCount|sortByDate}
  */
 export const getSortFunction = (sortType) => {
 	switch(sortType) {
@@ -36,49 +35,9 @@ export const getSortFunction = (sortType) => {
 			return sortByDate;
 		case sortTypes.COUNT:
 			return sortByItemCount;
-		case sortTypes.ITEM_NAMES:
-			return sortByItemNames;
 	}
 };
 
-/**
- * Колбэк для сортировки массива закзаов
- * Сравнивает 2 заказа по именам товаров в заказе
- * @param {Object} order1
- * @param {Object} order2
- */
-export const sortByItemNames = (order1, order2) => {
-	if (typeof order1 !== 'object' || typeof order2 !== 'object') {
-		return 0;
-	}
-
-	if (!order1 || !order2) {
-		return 0;
-	}
-
-	const {items: items1} = order1;
-	const {items: items2} = order2;
-
-	if (!items1 || !items2) {
-		return 0;
-	}
-
-	let result = 0;
-
-	items1.forEach((item, i) => {
-			if (item < items2[i]) {
-				result = -1;
-				return;
-			}
-
-			if (item > items2[i]) {
-				result = 1;
-				return;
-			}
-	});
-
-	return result;
-};
 
 /**
  * Колбэк для сортировки массива заказов

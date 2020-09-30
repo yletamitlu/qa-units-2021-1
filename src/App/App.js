@@ -42,7 +42,6 @@ export default class App extends React.PureComponent {
           >
             <option value={sortTypes.COUNT}>по количеству товаров</option>
             <option value={sortTypes.DATE}>по дате</option>
-            <option value={sortTypes.ITEM_NAMES}>по названиям товаров</option>
           </select>
         </header>
 
