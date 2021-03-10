@@ -20,8 +20,8 @@
 **Запустить тесты:**
 
 - прогон тестов `npm run test`
-- покрытие `npm test -- --coverage --watchAll=false`
-- обновить снапшоты `npm test -- --updateSnapshot`
+- покрытие `npm run test-coverage`
+- обновить снапшоты `npm run test-update-snap`
 
 **Документация по тестам:**
 

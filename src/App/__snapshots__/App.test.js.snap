@@ -41,7 +41,7 @@ exports[`App component render with default state DATE 1`] = `
             "Ноутбук Apple MacBook Air 13.3\\" (MQD32RU/A)",
             "Игровая приставка Sony PlayStation 4 Pro 1TB Black (CUH-7208B)",
           ],
-          "shop": "Эльдорадо",
+          "shop": "Эльдоградо",
         }
       }
     />
@@ -57,7 +57,7 @@ exports[`App component render with default state DATE 1`] = `
             "Ostin перчатки мужские",
             "Zara худи роз.",
           ],
-          "shop": "Lamoda.ru",
+          "shop": "Lamodник.ru",
         }
       }
     />
@@ -72,7 +72,7 @@ exports[`App component render with default state DATE 1`] = `
             "Курица из нержавеющей стали, утка, гусь, голубь, питьевой фонтан",
             "Новый стиль один розница яйцо для упаковки форма латекс",
           ],
-          "shop": "Ali Express",
+          "shop": "Alihandro Express",
         }
       }
     />

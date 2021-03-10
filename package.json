@@ -12,6 +12,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
+    "test-coverage": "npm test -- --coverage",
+    "test-update-snap": "npm test -- --updateSnapshot",
     "eject": "react-scripts eject",
     "test:CI": "set CI=true &&react-scripts test --env=jsdom --testResultsProcessor=./node_modules/jest-html-reporter"
   },
@@ -51,10 +53,9 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": -10
+        "branches": 90,
+        "functions": 90,
+        "lines": 90
       }
     }
   }
