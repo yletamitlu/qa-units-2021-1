@@ -12,6 +12,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
+    "test-coverage": "npm test -- --coverage",
+    "test-update-snap": "npm test -- --updateSnapshot",
     "eject": "react-scripts eject",
     "test:CI": "set CI=true &&react-scripts test --env=jsdom --testResultsProcessor=./node_modules/jest-html-reporter"
   },
@@ -37,14 +39,23 @@
     "@types/react-test-renderer": "^16.9.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.4.2",
-    "jest-html-reporter": "^2.8.1"
+    "enzyme-to-json": "^3.4.2"
   },
   "jest": {
     "collectCoverageFrom": [
       "src/App/*.{js,jsx,ts,tsx}",
       "src/Order/*.{js,jsx,ts,tsx}",
       "src/utils/*.{js,jsx,ts,tsx}"
-    ]
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90
+      }
+    }
   }
 }
