@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {fakeOrders} from '../mock/fakeOrders';
+import {fakeOrders} from '../data/fakeOrders';
 import Order from '../Order/Order';
 import {
   getSortFunction,
