@@ -11,8 +11,13 @@ configure({ adapter: new Adapter() });
 
 describe('Order.js', () => {
     beforeEach(() => {
+        getDate.mockClear();
         getDate.mockReturnValue('27 11 1998')
     });
+
+    afterEach(() => {
+        jest.resetModules()
+    })
 
     it('should render a Order', () => {
         const order = {shop: 'shop', date: 'date'}

@@ -1,5 +1,5 @@
 import React from 'react'
-import {sortByDate, sortByItemCount} from './sortOrders';
+import {sortOrders, sortByDate, sortByItemCount} from './sortOrders';
 
 describe('sortByItemCount function', () => {
 	it('orders are null', () => {
@@ -147,11 +147,11 @@ describe('sortByDate function', () => {
 
 	it('same dates', () => {
 		const order1 = {
-			date1: new Date(1998, 11, 27),
+			date: new Date(1998, 11, 27),
 		};
 
 		const order2 = {
-			date1: new Date(1998, 11, 27),
+			date: new Date(1998, 11, 27),
 		};
 
 		const result = sortByDate(order1, order2);
@@ -260,5 +260,17 @@ describe('sortByDate function', () => {
 		const result = sortByDate(order1, order2);
 
 		expect(result).toBe(0);
+	});
+});
+
+describe('sortOrders function', () => {
+	it('orders, sortFunc are null', () => {
+		const result = sortOrders(null, null);
+		expect(result).toEqual(undefined);
+	});
+
+	it('sortFunc are null', () => {
+		const result = sortOrders([1, 2], null);
+		expect(result).toEqual(undefined);
 	});
 });
