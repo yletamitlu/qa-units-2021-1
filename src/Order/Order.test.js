@@ -10,14 +10,13 @@ import {getDate} from "../utils/getDate";
 configure({ adapter: new Adapter() });
 
 describe('Order.js', () => {
-    beforeEach(() => {
-        getDate.mockClear();
+    beforeAll(() => {
         getDate.mockReturnValue('27 11 1998')
     });
 
-    afterEach(() => {
-        jest.resetModules()
-    })
+    afterAll(() => {
+        getDate.mockClear();
+    });
 
     it('should render a Order', () => {
         const order = {shop: 'shop', date: 'date'}
@@ -41,16 +40,14 @@ describe('Order.js', () => {
         const order = {shop: 'shop', date: null};
         const component = shallow(<Order order={order}/>);
 
-        expect(component.find('div')).toHaveLength(0);
-        expect(component).toMatchSnapshot();
+        expect(component).toEqual({});
     });
 
     it('Order with empty order', () => {
         const order = null;
         const component = shallow(<Order order={order}/>);
 
-        expect(component.find('div')).toHaveLength(0);
-        expect(component).toMatchSnapshot();
+        expect(component).toEqual({});
     });
 
     it('Order with items', () => {

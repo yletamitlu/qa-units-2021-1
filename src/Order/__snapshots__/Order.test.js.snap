@@ -14,19 +14,13 @@ exports[`Order.js Order div counter 1`] = `
     </span>
     <span
       id="date"
-    >
-      27 11 1998
-    </span>
+    />
   </div>
   <div
     class="Order-items"
   />
 </div>
 `;
-
-exports[`Order.js Order with empty date 1`] = `""`;
-
-exports[`Order.js Order with empty order 1`] = `""`;
 
 exports[`Order.js Order with items 1`] = `
 <div
@@ -42,9 +36,7 @@ exports[`Order.js Order with items 1`] = `
     </span>
     <span
       id="date"
-    >
-      27 11 1998
-    </span>
+    />
   </div>
   <div
     className="Order-items"
@@ -73,9 +65,7 @@ exports[`Order.js should render a Order 1`] = `
     </span>
     <span
       id="date"
-    >
-      27 11 1998
-    </span>
+    />
   </div>
   <div
     className="Order-items"
